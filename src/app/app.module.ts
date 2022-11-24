@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,13 +14,17 @@ import { NavBarComponent } from "./nav-bar/nav-bar.component";
         AppComponent,
         EmployeeListComponent,
         EmployeeProfileComponent,
-        NavBarComponent
+        NavBarComponent,
     ],
     providers: [EmployeeService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        RouterModule.forRoot([
+            {path: '', component:EmployeeListComponent},
+            {path: 'employees/:employeesId', component: EmployeeProfileComponent }
+          ])
     ]
 })
 export class AppModule { }

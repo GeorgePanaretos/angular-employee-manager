@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Employee } from './employee';
+import { Employee } from './employees';
 import { EmployeeService } from './employee.service';
 import { NgForm } from '@angular/forms';
 

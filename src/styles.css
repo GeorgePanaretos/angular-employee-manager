@@ -11,6 +11,16 @@ body{
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
     margin-bottom: 30px;
 }
+.btn-primary {
+    color: #fff;
+    background-color: #618bbd;
+    border-color: #618bbd;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #090d12;
+    border-color: #090d12;
+}
 .w-60 {
     width: 60px;
 }
@@ -20,7 +30,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .social-links li a {
     -webkit-border-radius: 50%;
-    background-color: rgba(89,206,181,.85);
+    /* background-color: rgba(89,206,181,.85); */
+    background-color: #61ab9bd9;
     border-radius: 50%;
     color: #fff;
     display: inline-block;
