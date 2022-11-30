@@ -13,6 +13,12 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
+   /**
+    * Get Employees
+  */
+  public getEmployees(): Observable<Employee> {
+    return this.http.get<Employee>('/assets/employee.json');
+  }
   /**
     * Get Employees
   */
