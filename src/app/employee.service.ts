@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from './employees';
 import { environment } from 'src/environments/environment';
@@ -11,14 +11,16 @@ export class EmployeeService {
 
   private apiServerUrl = environment.apiBaseUrl;
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(private http: HttpClient) { }
 
-   /**
-    * Get Employees
-  */
-  public getEmployees(): Observable<Employee> {
-    return this.http.get<Employee>('/assets/employee.json');
-  }
+    getEmployees(): Observable<Employee[]> {
+      return this.http.get<Employee[]>('assets/employees.json');
+    }
+  
   /**
     * Get Employees
   */
@@ -29,21 +31,22 @@ export class EmployeeService {
   // /**
   //   * Add Employees
   // */
-  //  public addEmployees(): Observable<Employee> {
-  //   return this.http.post<Employee[]>(`${this.apiServerUrl}/employee/add`, employee);
+  // public addEmployee(employee: Employee): Observable<Employee> {
+  //   return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`, employee);
   // }
 
   // /**
   //   * Update Employees
   // */
-  //  public updateEmployees(): Observable<any> {
-  //   return this.http.put<any>(`${this.apiServerUrl}/employee/update`, employee);
+  // public updateEmployee(employee: Employee): Observable<Employee> {
+  //   return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`, employee);
   // }
+
 
   // /**
   //   * Delete Employees
   // */
-  //  public deleteEmployees(): Observable<void> {
+  // public deleteEmployee(employeeId: number): Observable<void> {
   //   return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
   // }
 

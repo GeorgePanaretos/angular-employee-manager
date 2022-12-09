@@ -22,11 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        // RouterModule.forRoot([
-        //     {path: '', component:EmployeeListComponent},
-        //     {path: 'employees/:employeesId', component: EmployeeProfileComponent }
-        //   ]),
-        HttpClientModule  
+        HttpClientModule,
     ]
 })
 export class AppModule { }
