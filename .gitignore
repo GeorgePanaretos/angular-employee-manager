@@ -100,7 +100,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# More
+### More ###
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -134,3 +134,35 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Custom ###
+logs/
+target/
+!**/connector/target
+nbproject/
+node_modules/
+.idea/
+.sts4-cache/
+/frontend/app/
+/frontend/coverage/
+/frontend/dist/
+/frontend/nbproject/private/
+/frontend/node/
+/frontend/node_modules/
+/frontend/typedoc/
+/frontend/sassdoc/
+/frontend/debug.log
+/frontend/package-lock.json
+/frontend/sassdoc-data.json
+nbactions.tmp
+**/*.iml
+.classpath
+.factorypath
+docker/docker-compose.yml
+docker/exasol/create_virtual_schema.sql
+k8s/Jenkinsfile
+backend/target/*
+derby.log
+.vscode/*
+.settings/*
+.project
