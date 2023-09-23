@@ -16,38 +16,30 @@ export class EmployeeService {
   };
 
   constructor(private http: HttpClient) { }
-
-    getEmployees(): Observable<Employee[]> {
-      return this.http.get<Employee[]>('assets/employees.json');
-    }
+    // Get via json
+    // getEmployees(): Observable<Employee[]> {
+    //   return this.http.get<Employee[]>('assets/employees.json');
+    // } 
   
-  /**
-    * Get Employees
-  */
-  // public getEmployees(): Observable<Employee[]> {
-  //    return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
-  // }
+  // Get Employees
+  public getEmployees(): Observable<Employee[]> {
+     return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
+  }
 
-  // /**
-  //   * Add Employees
-  // */
-  // public addEmployee(employee: Employee): Observable<Employee> {
-  //   return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`, employee);
-  // }
+  //Add Employees
+  public addEmployee(employee: Employee): Observable<Employee> {
+     return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`, employee);
+   }
 
-  // /**
-  //   * Update Employees
-  // */
-  // public updateEmployee(employee: Employee): Observable<Employee> {
-  //   return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`, employee);
-  // }
+  //Update Employees
+   public updateEmployee(employee: Employee): Observable<Employee> {
+     return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`, employee);
+   }
 
 
-  // /**
-  //   * Delete Employees
-  // */
-  // public deleteEmployee(employeeId: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
-  // }
+  //Delete Employees
+   public deleteEmployee(employeeId: number): Observable<void> {
+     return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
+   }
 
 }

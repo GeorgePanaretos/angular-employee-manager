@@ -9,23 +9,25 @@ import { NgForm } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{} //implements OnInit {
-//   public employees: Employee[]=[];
+export class AppComponent implements OnInit {
+   public employees: Employee[] | undefined;
+   public editEmployee: Employee | undefined;
 
-//   constructor(private employeeService: EmployeeService) {}
 
-//   ngOnInit(): void {
-//     this.getEmployees();      
-//   }
+   constructor(private employeeService: EmployeeService) {}
 
-//   public getEmployees(): void {
-//     this.employeeService.getEmployees().subscribe(
-//     (response: Employee[]) => {
-//       this.employees = response
-//     },
-//     (error: HttpErrorResponse) => {
-//       alert(error.message);
-//     }
-//   );
-//   }
-// }
+  ngOnInit(): void {
+    this.getEmployees();      
+  }
+
+  public getEmployees(): void {
+    this.employeeService.getEmployees().subscribe(
+    (response: Employee[]) => {
+      this.employees = response
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }
+  );
+  }
+}
