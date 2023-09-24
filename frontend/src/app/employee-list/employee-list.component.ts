@@ -10,8 +10,11 @@ import { NgForm } from '@angular/forms';
 })
 export class EmployeeListComponent implements OnInit{
 
-  employees:  Employee[] =[] ;
-  
+  //employees:  Employee[] =[] ;
+  public employees: Employee[] | undefined;
+  public editEmployee: Employee | undefined;
+  public deleteEmployee: Employee | undefined;
+
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
@@ -33,11 +36,11 @@ export class EmployeeListComponent implements OnInit{
       button.setAttribute('data-target', '#addEmployeeModal');
     }
     if (mode === 'edit') {
-    //  this.editEmployee = employee;
+      this.editEmployee = employee;
       button.setAttribute('data-target', '#updateEmployeeModal');
     }
     if (mode === 'delete') {
-    //  this.deleteEmployee = employee;
+      this.deleteEmployee = employee;
       button.setAttribute('data-target', '#deleteEmployeeModal');
     }
     container!.appendChild(button);

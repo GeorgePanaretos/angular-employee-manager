@@ -11,8 +11,6 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
    public employees: Employee[] | undefined;
-   public editEmployee: Employee | undefined;
-
 
    constructor(private employeeService: EmployeeService) {}
 
