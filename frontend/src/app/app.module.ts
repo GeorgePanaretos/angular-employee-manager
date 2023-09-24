@@ -9,6 +9,7 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { EmployeeService } from './employee.service';
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        FormsModule
     ]
 })
 export class AppModule { }
