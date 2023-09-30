@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
         EmployeeProfileComponent,
         NavBarComponent,
     ],
-    providers: [EmployeeService],
+    providers: [EmployeeService, EmployeeListComponent, NavBarComponent],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

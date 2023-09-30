@@ -3,6 +3,7 @@ import { EmployeeService } from '../employee.service';
 
 import { Employee } from '../employees';
 import { NgForm } from '@angular/forms';
+import { EmployeeListComponent } from '../employee-list/employee-list.component';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -10,9 +11,13 @@ import { NgForm } from '@angular/forms';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private employeeListComponent: EmployeeListComponent) { }
 
   ngOnInit() {}
+
+  searchEmployees (key: string):void{
+    this.employeeListComponent.searchEmployees(key);
+  }
 
   onOpenModal (employee: Employee, mode: string):void {
     const container = document.getElementById('main-container');
