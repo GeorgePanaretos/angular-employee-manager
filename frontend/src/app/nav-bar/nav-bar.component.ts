@@ -4,6 +4,8 @@ import { EmployeeService } from '../employee.service';
 import { Employee } from '../employees';
 import { NgForm } from '@angular/forms';
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
+import { SharedService } from '../shared.service';
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -11,7 +13,7 @@ import { EmployeeListComponent } from '../employee-list/employee-list.component'
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private employeeListComponent: EmployeeListComponent) { }
+  constructor(private employeeListComponent: EmployeeListComponent, private sharedService: SharedService) { }
 
   ngOnInit() {}
 

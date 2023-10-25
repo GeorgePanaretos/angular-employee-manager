@@ -3,6 +3,7 @@ import { EmployeeService } from '../employee.service';
 import { Employee } from '../employees';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SharedService } from '../shared.service';
 
 
 @Component({
@@ -16,8 +17,9 @@ export class EmployeeListComponent implements OnInit{
   public editEmployee: Employee;
   public deleteEmployee: Employee;
 
-  constructor(private employeeService: EmployeeService) { }
-
+  searchResults$ = this.sharedService.searchResults$;
+  constructor(private employeeService: EmployeeService, private sharedService: SharedService) {}
+  
   ngOnInit(): void {
     this.getEmployees();
   }
@@ -92,6 +94,7 @@ export class EmployeeListComponent implements OnInit{
     if (results.length === 0 || !key) {
       this.getEmployees();
     }
+    this.sharedService.updateSearchResults(results);
   }
 
   public onOpenModal(employee: Employee, mode: string): void {
