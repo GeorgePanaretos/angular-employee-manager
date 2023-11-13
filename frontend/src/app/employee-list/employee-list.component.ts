@@ -4,6 +4,7 @@ import { Employee } from '../employees';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SharedService } from '../shared.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Component({
@@ -17,20 +18,28 @@ export class EmployeeListComponent implements OnInit{
   public editEmployee: Employee;
   public deleteEmployee: Employee;
 
-  searchResults$ = this.sharedService.searchResults$;
+  searchResults$: Observable<Employee[]> = this.sharedService.searchResults$;
   constructor(private employeeService: EmployeeService, private sharedService: SharedService) {}
   
   ngOnInit(): void {
-    this.getEmployees();
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
+      this.sharedService.updateSearchResults(employees);
+    });
   }
 
   getEmployees(): void {
-    this.employeeService.getEmployees()
-    .subscribe(employees => this.employees = employees);
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
+      console.log(this.employees);
+    },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+    }
+    );
   }
 
   public onAddEmloyee(addForm: NgForm): void {
-  // document.getElementById('add-employee-form').click();
   const addEmployeeForm = document.getElementById('add-employee-form');
   if (addEmployeeForm) {
     addEmployeeForm.click();
@@ -91,6 +100,8 @@ export class EmployeeListComponent implements OnInit{
     this.employees = results;
     console.log(results);
     console.log(results.length);
+    console.log(this.employees.length);
+    console.log();
     if (results.length === 0 || !key) {
       this.getEmployees();
     }
