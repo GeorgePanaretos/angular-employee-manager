@@ -10,22 +10,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-   public employees: Employee[] | undefined;
 
    constructor(private employeeService: EmployeeService) {}
 
-  ngOnInit(): void {
-    this.getEmployees();      
-  }
+  ngOnInit(): void {}
 
-  public getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(
-    (response: Employee[]) => {
-      this.employees = response
-    },
-    (error: HttpErrorResponse) => {
-      alert(error.message);
-    }
-  );
-  }
 }
